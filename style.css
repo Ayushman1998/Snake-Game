@@ -1,0 +1,84 @@
+:root {
+    --noOfRows: 24;
+    --noOfColumns: 24;
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    background: url("resources/image/bg.jpg");
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBox{
+    position: absolute;
+    top: 9px;
+    right: 200px;
+    font-size: 39px;
+    font-weight: bold;
+}
+
+#highscoreBox{
+    position: absolute;
+    top: 59px;
+    right: 120px;
+    font-size: 39px;
+    font-weight: bold;
+}
+
+#board{
+    background: linear-gradient(rgb(175, 212, 175), rgb(233, 233, 216));
+    width: 90vmin;
+    height: 92vmin;
+    border: 10px solid pink;
+    border-image: repeating-linear-gradient( 45deg, black, black 1%, red 1%, red 8%) 12;
+    display: grid;
+    grid-template-rows: repeat(var(--noOfRows), 1fr);
+    grid-template-columns: repeat(var(--noOfColumns), 1fr);
+}
+
+.head{
+    content: url("resources/image/snake head.png");
+    image-rendering: pixelated;
+    object-fit: cover;
+    width: 100%;
+}
+
+.snake{
+    background-color: rgb(142, 200, 64);
+    border: .25vmin solid rgb(69, 90, 41);
+    border-radius: 8px;
+}
+
+.food{
+    content: url("resources/image/fruit.png");
+    image-rendering: pixelated;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* Making Snake's head slightly bigger than body and rotating it according to direction*/
+.up{
+    transform: scale(1.75) rotate(180deg);
+}
+
+.down{
+    transform: scale(1.75) rotate(0deg);
+}
+
+.left{
+    transform: scale(1.75) rotate(90deg);
+}
+
+.right{
+    transform: scale(1.75) rotate(270deg);
+}
